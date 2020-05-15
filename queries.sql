@@ -112,3 +112,7 @@ SELECT TITLE_NAME from TITLES where PAGES < (select pages from titles where titl
 -- 27) Find the books that pay out a lower royalty rate than 'Ask Your System Adminstrator'
 SELECT TITLE_NAME, ROYALTY_RATE from TITLES natural join ROYALTIES
 where ROYALTY_RATE > (select ROYALTY_RATE from TITLES natural join ROYALTIES where TITLE_NAME = 'Ask Your System Administrator');
+
+-- 28) What is the title and price of the lowest priced book
+select title_name, PRICE from titles
+where PRICE = (select min(PRICE) from titles);
