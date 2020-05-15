@@ -73,3 +73,7 @@ select au_fname, au_lname, title_name, advance*royalty_share from authors inner 
 -- 17) How many books were published by each publisher
 SELECT PUB_NAME, count(*) as number_of_books from PUBLISHERS natural join TITLES
 group by PUB_NAME order by number_of_books desc;
+
+-- 18) How many books were published by each publisher where the number of books published is greater than 2
+SELECT PUB_NAME, count(*) as number_of_books from PUBLISHERS natural join TITLES
+group by PUB_NAME having count(*) > 2 order by number_of_books desc;
