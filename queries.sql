@@ -45,3 +45,11 @@ SELECT DISTINCT "TYPE" FROM TITLES;
 -- 11) Find the publisher name of all books that were published in august 2014
 SELECT distinct PUB_NAME FROM PUBLISHERS natural join TITLES
 where year(PUBDATE) = 2014 and month(PUBDATE) = 8;
+
+-- 12) Find the author that live in the same state as their publisher
+SELECT distinct AU_FNAME, AU_LNAME, AUTHORS."STATE" 
+from AUTHORS inner join TITLE_AUTHORS 
+on AUTHORS.AU_ID = TITLE_AUTHORS.AU_ID inner join TITLES on
+TITLE_AUTHORS.TITLE_ID = TITLES.TITLE_ID inner join PUBLISHERS on
+TITLES.PUB_ID = PUBLISHERS.PUB_ID
+where AUTHORS."STATE" = PUBLISHERS."STATE";
