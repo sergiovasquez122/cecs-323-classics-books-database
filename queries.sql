@@ -1,0 +1,10 @@
+-- 1) List all the data in the books database
+SELECT * FROM AUTHORS;
+
+SELECT * FROM PUBLISHERS;
+
+SELECT * FROM ROYALTIES;
+
+SELECT * FROM TITLES;
+
+SELECT * FROM TITLE_AUTHORS;
