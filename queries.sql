@@ -53,3 +53,7 @@ on AUTHORS.AU_ID = TITLE_AUTHORS.AU_ID inner join TITLES on
 TITLE_AUTHORS.TITLE_ID = TITLES.TITLE_ID inner join PUBLISHERS on
 TITLES.PUB_ID = PUBLISHERS.PUB_ID
 where AUTHORS."STATE" = PUBLISHERS."STATE";
+
+-- 13) Find the list of authors that write history books
+SELECT distinct AUTHORS.* from AUTHORS natural join TITLE_AUTHORS natural join TITLES
+where "TYPE" = 'history';
