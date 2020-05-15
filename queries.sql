@@ -81,5 +81,16 @@ group by PUB_NAME having count(*) > 2 order by number_of_books desc;
 -- 19) What is the highest advanced paid for a book
 SELECT max(ADVANCE) as highest_advance from ROYALTIES;
 
--- 20 What is the average royalty rate paid
+-- 20) What is the average royalty rate paid
 SELECT avg(ROYALTY_RATE) as average_royalty_rate from ROYALTIES;
+
+-- 21) List the total royalties paid out for each book
+select title_name, royalty_rate*sales*price from titles 
+inner join royalties on titles.title_id=royalties.title_id;
+
+-- 22) What is the total money paid out to each author to date
+select au_fname, au_lname, sum ((advance + royalty_rate*price*sales)*royalty_share) as "total money" from authors 
+inner join title_authors on authors.au_id=title_authors.au_id inner join titles on title_authors.title_id=titles.title_id 
+ inner join royalties on titles.title_id=royalties.title_id
+ group by au_fname,au_lname;
+
