@@ -33,3 +33,8 @@ SELECT TITLE_NAME, PAGES FROM TITLES where SALES < 5000;
 SELECT TITLE_NAME FROM PUBLISHERS inner join TITLES
 ON PUBLISHERS.PUB_ID = TITLES.PUB_ID 
 WHERE PUB_NAME = 'Core Dump Books';
+
+-- 9) Find the title of all books that have not been published by 'Core Dump Books'
+SELECT TITLE_NAME FROM PUBLISHERS inner join TITLES
+ON PUBLISHERS.PUB_ID = TITLES.PUB_ID 
+WHERE PUB_NAME != 'Core Dump Books';
