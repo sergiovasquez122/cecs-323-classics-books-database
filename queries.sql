@@ -25,3 +25,6 @@ order by "STATE", CITY;
 
 -- 6) Find the title and sales price for all books that sell for more than $20
 SELECT TITLE_NAME, PRICE FROM TITLES where PRICE > 20;
+
+-- 7) Find the title and number of pages for all books that have sold < 5000 copies
+SELECT TITLE_NAME, PAGES FROM TITLES where SALES < 5000;
