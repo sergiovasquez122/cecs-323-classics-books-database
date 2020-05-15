@@ -57,3 +57,7 @@ where AUTHORS."STATE" = PUBLISHERS."STATE";
 -- 13) Find the list of authors that write history books
 SELECT distinct AUTHORS.* from AUTHORS natural join TITLE_AUTHORS natural join TITLES
 where "TYPE" = 'history';
+
+-- 14) Find the publisher name of all books whose title starts with 'E'
+SELECT distinct PUB_NAME from PUBLISHERS natural join TITLES
+where TITLE_NAME like 'E%';
