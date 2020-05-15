@@ -105,3 +105,6 @@ group by au_fname, au_lname order by number_of_books desc;
 -- 25) Find the first name and last name for all authors who live in the same state as sarah buchman
 SELECT AU_FNAME, AU_LNAME FROM AUTHORS
 where "STATE" = (select "STATE" from AUTHORS where AU_FNAME = 'Sarah' and AU_LNAME = 'Buchman');
+
+-- 26) Find the title of all books that have less pages than 'I Blame My Mother'
+SELECT TITLE_NAME from TITLES where PAGES < (select pages from titles where title_name = 'I Blame My Mother');
