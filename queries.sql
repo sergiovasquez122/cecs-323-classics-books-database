@@ -108,3 +108,7 @@ where "STATE" = (select "STATE" from AUTHORS where AU_FNAME = 'Sarah' and AU_LNA
 
 -- 26) Find the title of all books that have less pages than 'I Blame My Mother'
 SELECT TITLE_NAME from TITLES where PAGES < (select pages from titles where title_name = 'I Blame My Mother');
+
+-- 27) Find the books that pay out a lower royalty rate than 'Ask Your System Adminstrator'
+SELECT TITLE_NAME, ROYALTY_RATE from TITLES natural join ROYALTIES
+where ROYALTY_RATE > (select ROYALTY_RATE from TITLES natural join ROYALTIES where TITLE_NAME = 'Ask Your System Administrator');
