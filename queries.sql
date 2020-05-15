@@ -143,3 +143,18 @@ SELECT distinct pub_name from PUBLISHERS
 except
 select distinct pub_name from publishers natural join titles
 where year(PUBDATE) = 2014;
+
+-- 34) List the state that in which we have authors, publisher or both. 
+select state, 'author' as category from (SELECT "STATE" from AUTHORS
+except select "STATE" from PUBLISHERS) as tmp1
+union
+select state, 'publisher' as category from (
+SELECT "STATE" from PUBLISHERS
+except select "STATE" from AUTHORS) as tmp2
+union
+select state, 'both' as category from
+(
+SELECT "STATE" from PUBLISHERS
+intersect
+Select state from authors) as tmp3
+order by state;
