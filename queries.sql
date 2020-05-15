@@ -22,3 +22,6 @@ SELECT * FROM TITLES WHERE TITLE_ID in ('T01', 'T04', 'T07');
 -- 5) Find the last name, first name, address, city, state for all authors, Display them in alphabetical order by city within state
 SELECT AU_LNAME, AU_LNAME, ADDRESS, CITY, "STATE" from AUTHORS
 order by "STATE", CITY;
+
+-- 6) Find the title and sales price for all books that sell for more than $20
+SELECT TITLE_NAME, PRICE FROM TITLES where PRICE > 20;
