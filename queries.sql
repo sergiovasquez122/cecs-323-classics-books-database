@@ -101,3 +101,7 @@ group by "STATE" order by number_of_authors desc;
 -- 24) How many books were written by each author
 SELECT AU_FNAME, AU_LNAME, count(*) as number_of_books from authors natural join title_authors natural join titles
 group by au_fname, au_lname order by number_of_books desc;
+
+-- 25) Find the first name and last name for all authors who live in the same state as sarah buchman
+SELECT AU_FNAME, AU_LNAME FROM AUTHORS
+where "STATE" = (select "STATE" from AUTHORS where AU_FNAME = 'Sarah' and AU_LNAME = 'Buchman');
