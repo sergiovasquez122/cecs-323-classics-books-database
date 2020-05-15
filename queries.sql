@@ -41,3 +41,7 @@ WHERE PUB_NAME != 'Core Dump Books';
 
 -- 10) List all the different types of books
 SELECT DISTINCT "TYPE" FROM TITLES;
+
+-- 11) Find the publisher name of all books that were published in august 2014
+SELECT distinct PUB_NAME FROM PUBLISHERS natural join TITLES
+where year(PUBDATE) = 2014 and month(PUBDATE) = 8;
