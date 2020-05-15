@@ -77,3 +77,6 @@ group by PUB_NAME order by number_of_books desc;
 -- 18) How many books were published by each publisher where the number of books published is greater than 2
 SELECT PUB_NAME, count(*) as number_of_books from PUBLISHERS natural join TITLES
 group by PUB_NAME having count(*) > 2 order by number_of_books desc;
+
+-- 19) What is the highest advanced paid for a book
+SELECT max(ADVANCE) as highest_advance from ROYALTIES;
