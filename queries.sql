@@ -116,3 +116,7 @@ where ROYALTY_RATE > (select ROYALTY_RATE from TITLES natural join ROYALTIES whe
 -- 28) What is the title and price of the lowest priced book
 select title_name, PRICE from titles
 where PRICE = (select min(PRICE) from titles);
+
+-- 29) Find the publisher of all books that are the same type as "How About Never?"
+SELECT distinct PUBLISHERS.* from publishers natural join titles
+where "TYPE" = (select "TYPE" from titles where TITLE_NAME = 'How About Never?');
