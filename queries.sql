@@ -137,3 +137,9 @@ title_authors on authors.au_id = title_authors.au_id
 inner join titles on title_authors.title_id = titles.TITLE_ID
 inner join PUBLISHERS on 
 TITLES.PUB_ID = PUBLISHERS.PUB_ID;
+
+-- 33) List the publishers that did not publish a book during 2014
+SELECT distinct pub_name from PUBLISHERS
+except
+select distinct pub_name from publishers natural join titles
+where year(PUBDATE) = 2014;
