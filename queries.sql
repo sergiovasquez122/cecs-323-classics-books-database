@@ -97,3 +97,7 @@ inner join title_authors on authors.au_id=title_authors.au_id inner join titles 
 -- 23) How many authors live in each state
 SELECT "STATE", count(*) as number_of_authors from AUTHORS
 group by "STATE" order by number_of_authors desc;
+
+-- 24) How many books were written by each author
+SELECT AU_FNAME, AU_LNAME, count(*) as number_of_books from authors natural join title_authors natural join titles
+group by au_fname, au_lname order by number_of_books desc;
