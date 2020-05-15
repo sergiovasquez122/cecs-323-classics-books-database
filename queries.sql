@@ -65,3 +65,7 @@ where TITLE_NAME like 'E%';
 -- 15) List all the books and their authors of all books that have been published by 'Schadenfreude Press'
 SELECT AU_FNAME, AU_LNAME, TITLE_NAME from AUTHORS natural join TITLE_AUTHORS natural join TITLES
 where PUB_ID = (SELECT PUB_ID from PUBLISHERS where PUB_NAME = 'Schadenfreude Press');
+
+-- 16) List the authors and titles and all the advanced paid for all books
+select au_fname, au_lname, title_name, advance*royalty_share from authors inner join title_authors on authors.au_id=title_authors.au_id inner join titles on title_authors.title_id=titles.title_id 
+ right outer join royalties on titles.title_id=royalties.title_id;
