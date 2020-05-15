@@ -120,3 +120,8 @@ where PRICE = (select min(PRICE) from titles);
 -- 29) Find the publisher of all books that are the same type as "How About Never?"
 SELECT distinct PUBLISHERS.* from publishers natural join titles
 where "TYPE" = (select "TYPE" from titles where TITLE_NAME = 'How About Never?');
+
+-- 30) List all city and states where we do business -- where we have authors or publishers. identify each row as either an author or a publisher
+SELECT CITY, "STATE", 'author' as category from authors
+union
+select city, state, 'publisher' as category from PUBLISHERS;
