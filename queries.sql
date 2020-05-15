@@ -80,3 +80,6 @@ group by PUB_NAME having count(*) > 2 order by number_of_books desc;
 
 -- 19) What is the highest advanced paid for a book
 SELECT max(ADVANCE) as highest_advance from ROYALTIES;
+
+-- 20 What is the average royalty rate paid
+SELECT avg(ROYALTY_RATE) as average_royalty_rate from ROYALTIES;
