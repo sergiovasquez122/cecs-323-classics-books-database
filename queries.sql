@@ -94,3 +94,6 @@ inner join title_authors on authors.au_id=title_authors.au_id inner join titles 
  inner join royalties on titles.title_id=royalties.title_id
  group by au_fname,au_lname;
 
+-- 23) How many authors live in each state
+SELECT "STATE", count(*) as number_of_authors from AUTHORS
+group by "STATE" order by number_of_authors desc;
