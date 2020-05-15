@@ -28,3 +28,8 @@ SELECT TITLE_NAME, PRICE FROM TITLES where PRICE > 20;
 
 -- 7) Find the title and number of pages for all books that have sold < 5000 copies
 SELECT TITLE_NAME, PAGES FROM TITLES where SALES < 5000;
+
+-- 8) Find the title of all books that have been published by 'Core Dump Books'
+SELECT TITLE_NAME FROM PUBLISHERS inner join TITLES
+ON PUBLISHERS.PUB_ID = TITLES.PUB_ID 
+WHERE PUB_NAME = 'Core Dump Books';
