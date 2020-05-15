@@ -171,3 +171,9 @@ where   ta.au_order = (
 -- 36) Display the title_name and number of author for that title
 SELECT TITLE_NAME, count(*) as number_of_authors from titles natural join title_authors
 group by TITLE_NAME order by number_of_authors desc;
+
+-- 37) list the authors of the books with the highest sales
+SELECT distinct AU_FNAME, AU_LNAME from AUTHORS 
+natural join title_authors
+natural join titles
+where SALES = (select max(SALES) from TITLES);
