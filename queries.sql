@@ -69,3 +69,7 @@ where PUB_ID = (SELECT PUB_ID from PUBLISHERS where PUB_NAME = 'Schadenfreude Pr
 -- 16) List the authors and titles and all the advanced paid for all books
 select au_fname, au_lname, title_name, advance*royalty_share from authors inner join title_authors on authors.au_id=title_authors.au_id inner join titles on title_authors.title_id=titles.title_id 
  right outer join royalties on titles.title_id=royalties.title_id;
+
+-- 17) How many books were published by each publisher
+SELECT PUB_NAME, count(*) as number_of_books from PUBLISHERS natural join TITLES
+group by PUB_NAME order by number_of_books desc;
