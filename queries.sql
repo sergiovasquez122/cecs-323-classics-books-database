@@ -125,3 +125,7 @@ where "TYPE" = (select "TYPE" from titles where TITLE_NAME = 'How About Never?')
 SELECT CITY, "STATE", 'author' as category from authors
 union
 select city, state, 'publisher' as category from PUBLISHERS;
+
+-- 31) list the state in which we have both authors and publishers
+SELECT state from authors intersect select state from publishers
+order by state;
