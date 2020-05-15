@@ -129,3 +129,11 @@ select city, state, 'publisher' as category from PUBLISHERS;
 -- 31) list the state in which we have both authors and publishers
 SELECT state from authors intersect select state from publishers
 order by state;
+
+-- 32) find the list of all authors who have not been published
+SELECT AU_FNAME, AU_LNAME from authors except
+select AU_FNAME, AU_LNAME from authors inner join 
+title_authors on authors.au_id = title_authors.au_id
+inner join titles on title_authors.title_id = titles.TITLE_ID
+inner join PUBLISHERS on 
+TITLES.PUB_ID = PUBLISHERS.PUB_ID;
