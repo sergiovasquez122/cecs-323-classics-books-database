@@ -158,3 +158,16 @@ SELECT "STATE" from PUBLISHERS
 intersect
 Select state from authors) as tmp3
 order by state;
+
+-- 35) List author name, and book title in which the author is the last author listed
+select  au.au_fname, au.au_lname, ti.title_name
+from    authors au inner join title_authors ta on ta.au_id = au.AU_ID
+        inner join titles ti on ti.title_id = ta.TITLE_ID
+where   ta.au_order = (
+        select  max (au_order)
+        from    title_authors ta_inner
+        where   ta_inner.title_id = ta.TITLE_ID);
+
+-- 36) Display the title_name and number of author for that title
+SELECT TITLE_NAME, count(*) as number_of_authors from titles natural join title_authors
+group by TITLE_NAME order by number_of_authors desc;
