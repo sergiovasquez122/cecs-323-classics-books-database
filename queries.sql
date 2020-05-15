@@ -38,3 +38,6 @@ WHERE PUB_NAME = 'Core Dump Books';
 SELECT TITLE_NAME FROM PUBLISHERS inner join TITLES
 ON PUBLISHERS.PUB_ID = TITLES.PUB_ID 
 WHERE PUB_NAME != 'Core Dump Books';
+
+-- 10) List all the different types of books
+SELECT DISTINCT "TYPE" FROM TITLES;
