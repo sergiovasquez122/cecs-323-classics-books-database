@@ -61,3 +61,7 @@ where "TYPE" = 'history';
 -- 14) Find the publisher name of all books whose title starts with 'E'
 SELECT distinct PUB_NAME from PUBLISHERS natural join TITLES
 where TITLE_NAME like 'E%';
+
+-- 15) List all the books and their authors of all books that have been published by 'Schadenfreude Press'
+SELECT AU_FNAME, AU_LNAME, TITLE_NAME from AUTHORS natural join TITLE_AUTHORS natural join TITLES
+where PUB_ID = (SELECT PUB_ID from PUBLISHERS where PUB_NAME = 'Schadenfreude Press');
